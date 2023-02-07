@@ -7,6 +7,7 @@
 	import { currentBiz } from '$lib/Stores';
 
 	import { Toast } from 'bootstrap';
+	import { popper } from '@popperjs/core';
 
 	const defaultStyle = 'browser';
 	let theMenu: any;

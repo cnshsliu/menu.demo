@@ -10,16 +10,27 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		/* paths: {
+		paths: {
 			base: dev ? '' : '/menu.demo'
-		}, */
+		},
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html',
 			precompress: false,
 			strict: true
-		})
+		}),
+		prerender: {
+			entries: [
+				'*',
+				'/biz/1',
+				'/template/create',
+				'/template/import',
+				'/template/search',
+				'/workflow/normal',
+				'/workflow/mining'
+			]
+		}
 	}
 };
 
