@@ -297,8 +297,10 @@
 	bind:this={theMenu}
 	{menuDef}
 	{menuStyle}
-	avatar={{ img: '/avatar.png' }}
-	logo={{ img: '/yn.png' }}
+	avatar={{
+		img: 'https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/avatar.png'
+	}}
+	logo={{ img: 'https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/yn.png' }}
 	on:changeWorklistStatus={onChangeWorklistStatus}
 	on:sizeChanged={onSizeChanged}
 	on:changeStyle={onChangeStyle}
@@ -306,14 +308,24 @@
 
 <div class="p-0 {mainAreaClass}  w-100 h-100">
 	<div class="top-50 start-50 translate-middle text-center" style="position:absolute;">
-		<div><img src="/yn.png" alt="yn" style="width:32px; " /></div>
+		<div>
+			<img
+				src="https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/yn.png"
+				alt="yn"
+				style="width:32px; "
+			/>
+		</div>
 		<div><slot /></div>
 	</div>
 </div>
 <div class="toast-container position-fixed top-0 end-0 p-3">
 	<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 		<div class="toast-header">
-			<img src="/block.svg" class="rounded me-2" alt="..." />
+			<img
+				src="https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/block.svg"
+				class="rounded me-2"
+				alt="..."
+			/>
 			<strong class="me-auto">Yarknode Menu</strong>
 			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" />
 		</div>
