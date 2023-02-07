@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuInSession } from '$lib/MenuData';
+	import { menuInSession } from '@yarknode/svelte-menu/MenuData';
 	const login = () => {
 		$menuInSession = true;
 	};

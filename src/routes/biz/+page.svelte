@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { currentBiz } from '$lib/MenuData';
+	import { currentBiz } from '$lib/Stores';
 	function generateRandom(maxLimit = 100) {
 		let rand = Math.random() * maxLimit;
 		rand = Math.floor(rand); // 99

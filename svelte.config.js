@@ -10,13 +10,13 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		paths: {
+		/* paths: {
 			base: dev ? '' : '/menu.demo'
-		},
+		}, */
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: null,
+			fallback: 'index.html',
 			precompress: false,
 			strict: true
 		})

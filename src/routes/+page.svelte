@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { menuData, menuDataInitial, menuRefreshFlag } from '$lib/MenuData';
+	import { menuData, menuDataInitial, menuRefreshFlag } from '@yarknode/svelte-menu/MenuData';
 	const demo_insert_sub = () => {
 		let tmp = $menuData;
 		let index = tmp.findIndex((mi) => {

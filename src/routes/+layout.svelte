@@ -2,8 +2,10 @@
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
 	import Menu from '@yarknode/svelte-menu';
-	import { menuInSession, currentBiz, demoData } from '@yarknode/svelte-menu/MenuData';
+	import { menuInSession, demoData } from '@yarknode/svelte-menu/MenuData';
 	import type { menuDataType } from '@yarknode/svelte-menu/MenuData';
+	import { currentBiz } from '$lib/Stores';
+
 	import { Toast } from 'bootstrap';
 
 	const defaultStyle = 'browser';
