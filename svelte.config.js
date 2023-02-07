@@ -1,5 +1,7 @@
 const dev = process.argv.includes('dev');
-import adapter from '@sveltejs/adapter-static';
+//import adapter from '@sveltejs/adapter-auto';
+//import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-node';
 
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -10,9 +12,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		paths: {
+		/* paths: {
 			base: dev ? '' : '/menu.demo'
-		},
+		}, */
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
