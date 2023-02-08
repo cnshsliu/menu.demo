@@ -27,7 +27,6 @@
 			];
 			$menuDataForSet = tmp;
 			$menuRefreshFlag = true;
-		} else {
 		}
 	};
 
@@ -90,4 +89,20 @@
 		</li>
 		<li>Sign in/out: Play with sign in/out to see what happens to the menu</li>
 	</ul>
+	<div>
+		Github for @yarknode/svelte-menu:
+		<a href="https://github.com/cnshsliu/yarknodemenu">
+			https://github.com/cnshsliu/yarknodemenu
+		</a>
+	</div>
+	<div>
+		NPM for @yarknode/svelte-menu:
+		<a href="https://www.npmjs.com/package/@yarknode/svelte-menu">
+			https://www.npmjs.com/package/@yarknode/svelte-menu
+		</a>
+	</div>
+	<div>
+		Github for this Demo:
+		<a href="https://github.com/cnshsliu/menu.demo"> https://github.com/cnshsliu/menu.demo </a>
+	</div>
 </div>
