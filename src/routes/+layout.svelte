@@ -316,6 +316,11 @@
 			/>
 		</div>
 		<div><slot /></div>
+		<div class="mt-3">
+			Github: <a href="https://github.com/cnshsliu/menu.demo"
+				>https://github.com/cnshsliu/menu.demo</a
+			>
+		</div>
 	</div>
 </div>
 <div class="toast-container position-fixed top-0 end-0 p-3">
