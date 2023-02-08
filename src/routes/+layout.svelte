@@ -1,15 +1,11 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
+	import { mygoto } from '@yarknode/svelte-menu/Util';
+	import Menu from '@yarknode/svelte-menu/Menu.svelte';
 	import { onMount } from 'svelte';
-	import Menu from '@yarknode/svelte-menu';
 	import { menuInSession, demoData } from '@yarknode/svelte-menu/MenuData';
 	import type { menuDataType } from '@yarknode/svelte-menu/MenuData';
-	import { currentBiz } from '$lib/Stores';
-
 	import { Toast } from 'bootstrap';
-	import { popper } from '@popperjs/core';
 
-	const defaultStyle = 'browser';
 	let theMenu: any;
 	$menuInSession = false;
 
@@ -18,48 +14,12 @@
 	let mainAreaClass: string = 'main-area-width-small';
 	let notify = { message: '' };
 
-	const example_saveOneBiz = function (tplid: string) {
-		if (tplid === null || tplid === undefined || tplid === '') return;
-		if (!localStorage) return;
-
-		let rcts = JSON.parse(localStorage.getItem('recentTemplates') ?? JSON.stringify([]));
-		let old_rcts = [...rcts];
-		let tmp = rcts.indexOf(tplid);
-		if (tmp === 0) return; //如果已经是第一项,则直接返回,不用处理
-
-		if (tmp >= 0) {
-			//如果找到, 就在原位置删除
-			rcts.splice(tmp, 1);
-		}
-
-		rcts.unshift(tplid); //在头部加入
-		if (rcts.length > 10) {
-			//如多余10个,则限制在10个
-			rcts.splice(10);
-		}
-		localStorage.setItem('recentTemplates', JSON.stringify(rcts));
-		let tmpData: menuDataType[] = [];
-		for (let i = 0; i < rcts.length; i++) {
-			tmpData.push({
-				id: `__recentbiz_${rcts[i]}`,
-				class: 'recent_biz',
-				alias: rcts[i],
-				href: `/biz/${rcts[i]}`,
-				icon: 'dot'
-			});
-		}
-
-		theMenu.replaceChildren('___recentbiz', tmpData);
-	};
-
-	$: example_saveOneBiz($currentBiz);
-
 	const onChangeWorklistStatus = async (event: CustomEvent) => {
 		const payload = event.detail;
 		if (payload === undefined) return;
 
 		$demoData = payload;
-		goto(`/work`);
+		mygoto(`/work`);
 	};
 
 	const onSizeChanged = async (event: CustomEvent) => {
@@ -194,11 +154,11 @@
 			icon: 'question-circle'
 		},
 		{
-			id: '___demo',
-			class: 'demo',
-			alias: 'Demo',
+			id: '___searchEngine',
+			class: 'part3',
 			href: '/',
-			icon: 'flower1'
+			alias: 'SearchEngine',
+			icon: 'google'
 		},
 		{
 			id: '___recentbiz',
@@ -272,7 +232,7 @@
 		if (isMobile) {
 			menuStyle = 'mobile';
 		} else {
-			menuStyle = defaultStyle;
+			menuStyle = 'browser';
 		}
 
 		if (menuStyle === 'mobile') mainAreaClass = '';
@@ -297,10 +257,8 @@
 	bind:this={theMenu}
 	{menuDef}
 	{menuStyle}
-	avatar={{
-		img: 'https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/avatar.png'
-	}}
-	logo={{ img: 'https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/yn.png' }}
+	avatar={{ img: '/avatar.png' }}
+	logo={{ img: '/yn.png' }}
 	on:changeWorklistStatus={onChangeWorklistStatus}
 	on:sizeChanged={onSizeChanged}
 	on:changeStyle={onChangeStyle}
@@ -308,40 +266,14 @@
 
 <div class="p-0 {mainAreaClass}  w-100 h-100">
 	<div class="top-50 start-50 translate-middle text-center" style="position:absolute;">
-		<div>
-			<img
-				src="https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/yn.png"
-				alt="yn"
-				style="width:32px; "
-			/>
-		</div>
+		<div><img src="/yn.png" alt="yn" style="width:32px; " /></div>
 		<div><slot /></div>
-		<div class="mt-3">
-			menu.demo Github: <a href="https://github.com/cnshsliu/menu.demo"
-				>https://github.com/cnshsliu/menu.demo</a
-			>
-		</div>
-		<div class="mt-3">
-			@yarknode/svelte-menu Github:
-			<a href="https://github.com/cnshsliu/yarknodemenu">https://github.com/cnshsliu/yarknodemenu</a
-			>
-		</div>
-		<div class="mt-3">
-			@yarknode/svelte-menu NPM:
-			<a href="https://www.npmjs.com/package/@yarknode/svelte-menu"
-				>https://www.npmjs.com/package/@yarknode/svelte-menu</a
-			>
-		</div>
 	</div>
 </div>
 <div class="toast-container position-fixed top-0 end-0 p-3">
 	<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
 		<div class="toast-header">
-			<img
-				src="https://raw.githubusercontent.com/cnshsliu/menu.demo/main/static/block.svg"
-				class="rounded me-2"
-				alt="..."
-			/>
+			<img src="/block.svg" class="rounded me-2" alt="..." />
 			<strong class="me-auto">Yarknode Menu</strong>
 			<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" />
 		</div>
