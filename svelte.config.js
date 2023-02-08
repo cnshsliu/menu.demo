@@ -1,7 +1,8 @@
 const dev = process.argv.includes('dev');
 //import adapter from '@sveltejs/adapter-auto';
 //import adapter from '@sveltejs/adapter-static';
-import adapter from '@sveltejs/adapter-node';
+//import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-vercel';
 
 import { vitePreprocess } from '@sveltejs/kit/vite';
 
@@ -15,6 +16,7 @@ const config = {
 		/* paths: {
 			base: dev ? '' : '/menu.demo'
 		}, */
+		/*
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
@@ -22,6 +24,8 @@ const config = {
 			precompress: false,
 			strict: true
 		}),
+		*/
+		adapter: adapter({ runtime: 'edge' }),
 		prerender: {
 			entries: [
 				'*',
