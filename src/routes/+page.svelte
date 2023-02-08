@@ -88,6 +88,7 @@
 			"+layout.svelte" to see what happens around id: "_work_running"
 		</li>
 		<li>Sign in/out: Play with sign in/out to see what happens to the menu</li>
+		<li>Styles: toggle among 4 styles in "Menu Style"</li>
 	</ul>
 	<div>
 		Github for @yarknode/svelte-menu:
