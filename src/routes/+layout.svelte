@@ -317,8 +317,19 @@
 		</div>
 		<div><slot /></div>
 		<div class="mt-3">
-			Github: <a href="https://github.com/cnshsliu/menu.demo"
+			menu.demo Github: <a href="https://github.com/cnshsliu/menu.demo"
 				>https://github.com/cnshsliu/menu.demo</a
+			>
+		</div>
+		<div class="mt-3">
+			@yarknode/svelte-menu Github:
+			<a href="https://github.com/cnshsliu/yarknodemenu">https://github.com/cnshsliu/yarknodemenu</a
+			>
+		</div>
+		<div class="mt-3">
+			@yarknode/svelte-menu NPM:
+			<a href="https://www.npmjs.com/package/@yarknode/svelte-menu"
+				>https://www.npmjs.com/package/@yarknode/svelte-menu</a
 			>
 		</div>
 	</div>
