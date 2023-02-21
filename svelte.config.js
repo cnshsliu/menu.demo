@@ -8,36 +8,36 @@ import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://kit.svelte.dev/docs/integrations#preprocessors
-	// for more information about preprocessors
-	preprocess: vitePreprocess(),
+  // Consult https://kit.svelte.dev/docs/integrations#preprocessors
+  // for more information about preprocessors
+  preprocess: vitePreprocess(),
 
-	kit: {
-		/* paths: {
-			base: dev ? '' : '/menu.demo'
-		}, */
-		/*
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: 'index.html',
-			precompress: false,
-			strict: true
-		}),
-		*/
-		adapter: adapter({ runtime: 'edge' }),
-		prerender: {
-			entries: [
-				'*',
-				'/biz/1',
-				'/template/create',
-				'/template/import',
-				'/template/search',
-				'/workflow/normal',
-				'/workflow/mining'
-			]
-		}
-	}
+  kit: {
+    /* paths: {
+      base: dev ? '' : '/menu.demo'
+    }, */
+    /*
+    adapter: adapter({
+      pages: 'build',
+      assets: 'build',
+      fallback: 'index.html',
+      precompress: false,
+      strict: true
+    }),
+    */
+    adapter: adapter({ runtime: 'edge' }),
+    prerender: {
+      entries: [
+        '*',
+        '/biz/1',
+        '/template/create',
+        '/template/import',
+        '/template/search',
+        '/workflow/normal',
+        '/workflow/mining'
+      ]
+    }
+  }
 };
 
 export default config;
